@@ -47,7 +47,7 @@ public class RegisterPage {
         setPassword(password);
         clickRegisterButton();
     }
-    //Метод,определяющий емсть ли ошибка
+    //Метод,определяющий есть ли ошибка
     public boolean isErrorMessage() {
         return errorMessage.isDisplayed();
 

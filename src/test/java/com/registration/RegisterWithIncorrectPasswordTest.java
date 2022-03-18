@@ -1,5 +1,6 @@
 package com.registration;
 
+import com.BaseTest;
 import com.model.User;
 import com.po.LoginPage;
 import com.po.MainPage;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class RegisterWithIncorrectPasswordTest extends BaseTest {
     @Test
     @DisplayName("Регистрация пользователя с некоррекным паролем")
-    public void testRegister() {
+    public void testRegistrationPasswordError() {
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         RegisterPage registerPage = page(RegisterPage.class);

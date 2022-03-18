@@ -3,6 +3,8 @@ package com;
 import com.po.MainPage;
 import org.junit.Before;
 
+import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public abstract class BaseTest {
@@ -13,5 +15,6 @@ public abstract class BaseTest {
         Для запуска тестов в Яндекс.Браузер раскомментировать строку ниже.*/
         // System.setProperty("webdriver.chrome.driver", "src/resources/yandexdriver.exe");
         MainPage mainPage = open(MainPage.URL, MainPage.class);
+
     }
 }

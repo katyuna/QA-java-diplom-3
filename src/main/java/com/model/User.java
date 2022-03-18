@@ -46,7 +46,7 @@ public class User {
         this.name = name;
         return this;
     }
-    //Сгенерировать случайные данные юзера
+    //Сгенерировать случайные данные юзера для регистрации
     public static User getRandomUser(){
         Faker faker = new Faker();
         String email = faker.internet().emailAddress();

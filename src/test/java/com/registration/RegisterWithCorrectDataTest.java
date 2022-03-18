@@ -17,7 +17,7 @@ public class RegisterWithCorrectDataTest extends BaseTest {
 
     @Test
     @DisplayName("Успешная регистрация нового пользователя")
-    public void testRegister() {
+    public void testRegistrationIsOk() {
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         RegisterPage registerPage = page(RegisterPage.class);
