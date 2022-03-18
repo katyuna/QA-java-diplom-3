@@ -17,6 +17,8 @@ public class RegisterPage {
     public SelenideElement inputPassword;
     @FindBy(how = How.XPATH, using = "//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']")
     public SelenideElement buttonRegister;
+    @FindBy(how = How.XPATH, using = ".//p[@class='input__error text_type_main-default']")
+    private SelenideElement errorMessage;
 
 
     //Методы заполнения полей формы и клик по кнопке
@@ -44,6 +46,11 @@ public class RegisterPage {
         setEmail(email);
         setPassword(password);
         clickRegisterButton();
+    }
+    //Метод,определяющий емсть ли ошибка
+    public boolean isErrorMessage() {
+        return errorMessage.isDisplayed();
+
     }
 
 }
