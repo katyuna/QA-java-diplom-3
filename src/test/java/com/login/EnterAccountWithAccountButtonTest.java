@@ -2,10 +2,8 @@ package com.login;
 
 import com.BaseTest;
 import com.UserOperations;
-import com.model.User;
 import com.po.LoginPage;
 import com.po.MainPage;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -13,17 +11,14 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class EnterAccountWithEnterAccountButtonTest extends BaseTest {
-
+public class EnterAccountWithAccountButtonTest extends BaseTest {
     @Test
-    @DisplayName("Вход в аккацнт по кнопке Войти в Аккаунт на главной странице")
-    public void testEnterAccountButtonIsOk() {
-
+    @DisplayName("Вход в аккаунт по кнопке Личный Кабинет на главной странице")
+    public void testAccountButtonIsOk() {
         //Зарегистрировать пользователя и получить его данные для авторизации
-       UserOperations userOperations = new UserOperations();
+        UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
         String userName = userData.get("name");
         String userEmail = userData.get("email");
@@ -32,7 +27,8 @@ public class EnterAccountWithEnterAccountButtonTest extends BaseTest {
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         LoginPage loginPage = page(LoginPage.class);
-        mainPage.buttonEnterAccount.click();
+
+        mainPage.buttonAccount.click();
 
         loginPage.fillLoginForm(userEmail, userPassword);
 
@@ -41,5 +37,7 @@ public class EnterAccountWithEnterAccountButtonTest extends BaseTest {
         //Проверку проверить, что отображается кнопка Оформить заказ
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
         assertTrue(createOrderButtonIsDisplayed);
+
     }
+
 }
