@@ -17,7 +17,6 @@ import static org.junit.Assert.assertTrue;
 
 public class EnterAccountWithEnterAccountButtonTest extends BaseTest {
 
-
     @Test
     @DisplayName("Вход в аккацнт по кнопке Войти в Аккаунт на главной странице")
     public void testEnterAccountButtonIsOk() {
@@ -35,10 +34,10 @@ public class EnterAccountWithEnterAccountButtonTest extends BaseTest {
         mainPage.buttonEnterAccount.click();
         loginPage.fillLoginForm(userEmail, userPassword);
 
-
-        //Проверку проверить
+        //Проверку проверить, что отображается кнопка Оформить заказ
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
-        assertFalse(createOrderButtonIsDisplayed);
+        System.out.println(createOrderButtonIsDisplayed);
+        assertTrue(createOrderButtonIsDisplayed);
 
     }
 }
