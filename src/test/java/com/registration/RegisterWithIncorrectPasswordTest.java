@@ -1,3 +1,5 @@
+package com.registration;
+
 import com.model.User;
 import com.po.LoginPage;
 import com.po.MainPage;
