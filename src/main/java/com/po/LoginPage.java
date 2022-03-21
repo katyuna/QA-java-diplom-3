@@ -23,6 +23,8 @@ public class LoginPage {
     //Личный кабинет
     @FindBy(how = How.XPATH, using = ".//a[@href='/account']")
     public SelenideElement buttonAccount;
+    @FindBy(how = How.XPATH, using = ".//a[@href='/forgot-password']")
+    public SelenideElement linkForgotPassword;
 
     //Методы заполнения полей формы и клик по кнопке
     public void setEmail(String email)
@@ -56,5 +58,9 @@ public class LoginPage {
     //Клик по Личный кабинет
     public void  clickAccount(){
         this.buttonAccount.click();
+    }
+    //Клик по ссылке восстановления пароля
+    public void  clickForgotPassword(){
+        this.linkForgotPassword.click();
     }
 }

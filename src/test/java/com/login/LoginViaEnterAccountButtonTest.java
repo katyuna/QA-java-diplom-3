@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
-public class EnterProfileWithEnterAccountButtonTest extends BaseTest {
+public class LoginViaEnterAccountButtonTest extends BaseTest {
 
     @Test
     @DisplayName("Вход в профиль по кнопке Войти в Аккаунт на главной странице")

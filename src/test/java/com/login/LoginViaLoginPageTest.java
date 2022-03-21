@@ -4,6 +4,8 @@ import com.BaseTest;
 import com.UserOperations;
 import com.po.LoginPage;
 import com.po.MainPage;
+import com.po.RegisterPage;
+import io.qameta.allure.Description;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -13,23 +15,26 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
-public class EnterProfileWithAccountButtonTest extends BaseTest {
+public class LoginViaLoginPageTest extends BaseTest {
     @Test
-    @DisplayName("Вход в аккаунт по кнопке Личный Кабинет на главной странице")
-    public void testCreateOrderButtonIsDisplayedAfterEnterViaProfile() {
+    @DisplayName("Вход в профиль по кнопке Войти на странице регистрации")
+    public void testCreateOrderButtonIsDisplayedAfterEnterViaEnterLink() {
         //Зарегистрировать пользователя и получить его данные для авторизации
         UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
-        String userName = userData.get("name");
         String userEmail = userData.get("email");
         String userPassword = userData.get("password");
 
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
+        RegisterPage registerPage = page(RegisterPage.class);
         LoginPage loginPage = page(LoginPage.class);
 
-        //Клик по "Личный кабинет"
+        //Перейти по страницам до формы логина
         mainPage.buttonAccount.click();
+        loginPage.linkRegister.click();
+        registerPage.clickLoginLink();
+
         //Заполнить форму логина
         loginPage.fillLoginForm(userEmail, userPassword);
         //Подождать пока кнопка "Оформить заказ" появится
@@ -37,7 +42,5 @@ public class EnterProfileWithAccountButtonTest extends BaseTest {
         //Проверить, что кнопка "Оформить заказ" отображается
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
         assertTrue(createOrderButtonIsDisplayed);
-
     }
-
 }

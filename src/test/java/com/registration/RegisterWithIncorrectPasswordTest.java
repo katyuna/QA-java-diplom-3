@@ -8,12 +8,7 @@ import com.po.RegisterPage;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selectors.byClassName;
-import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class RegisterWithIncorrectPasswordTest extends BaseTest {
