@@ -16,26 +16,26 @@ import static org.junit.Assert.assertTrue;
 public class EnterAccountWithEnterAccountButtonTest extends BaseTest {
 
     @Test
-    @DisplayName("Вход в аккацнт по кнопке Войти в Аккаунт на главной странице")
+    @DisplayName("Вход в профиль по кнопке Войти в Аккаунт на главной странице")
     public void testEnterAccountButtonIsOk() {
 
         //Зарегистрировать пользователя и получить его данные для авторизации
         UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
-        String userName = userData.get("name");
         String userEmail = userData.get("email");
         String userPassword = userData.get("password");
 
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         LoginPage loginPage = page(LoginPage.class);
+
+        //Клик по кнопке "Войти в аккаунт" на главной странице
         mainPage.buttonEnterAccount.click();
-
+        //Заполнить форму логина
         loginPage.fillLoginForm(userEmail, userPassword);
-
-        //Подождать пока кнопка появится и убедится что она действительно появилась
+        //Подождать пока кнопка "Оформить заказ" появится
         mainPage.buttonCreateOrder.shouldBe(enabled);
-        //Проверку проверить, что отображается кнопка Оформить заказ
+        //Проверить, что кнопка "Оформить заказ" отображается
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
         assertTrue(createOrderButtonIsDisplayed);
     }

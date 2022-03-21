@@ -20,9 +20,9 @@ public class LoginPage {
     //Инпут password
     @FindBy(how = How.XPATH, using = ".//input[@type='password']")
     public SelenideElement inputPassword;
-    //Кнопка "Войти"
-    // @FindBy(how = How.XPATH, using = ".//button[text()='Войти']")
-   // public SelenideElement buttonEnter;
+    //Личный кабинет
+    @FindBy(how = How.XPATH, using = ".//a[@href='/account']")
+    public SelenideElement buttonAccount;
 
     //Методы заполнения полей формы и клик по кнопке
     public void setEmail(String email)
@@ -45,12 +45,6 @@ public class LoginPage {
         setPassword(password);
         clickEnterButton();
     }
-
-
-
-
-
-
     //Клик по ссылке "Зарегистрироваться"
     public void clickRegisterLink() {
         this.linkRegister.click();
@@ -58,5 +52,9 @@ public class LoginPage {
     //Получить текст "Вход"
     public String getEnterText (){
         return this.enterText.getText();
+    }
+    //Клик по Личный кабинет
+    public void  clickAccount(){
+        this.buttonAccount.click();
     }
 }

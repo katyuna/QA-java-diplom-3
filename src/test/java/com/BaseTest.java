@@ -1,6 +1,8 @@
 package com;
 
+import com.codeborne.selenide.Selenide;
 import com.po.MainPage;
+import org.junit.After;
 import org.junit.Before;
 
 import java.util.Map;
@@ -16,5 +18,11 @@ public abstract class BaseTest {
         // System.setProperty("webdriver.chrome.driver", "src/resources/yandexdriver.exe");
         MainPage mainPage = open(MainPage.URL, MainPage.class);
 
-           }
+    }
+
+    @After
+    public void closeBrowser() {
+        Selenide.closeWindow();
+    }
+
 }

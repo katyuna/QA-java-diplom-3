@@ -27,14 +27,14 @@ public class EnterAccountWithAccountButtonTest extends BaseTest {
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         LoginPage loginPage = page(LoginPage.class);
+
         //Клик по "Личный кабинет"
         mainPage.buttonAccount.click();
-
+        //Заполнить форму логина
         loginPage.fillLoginForm(userEmail, userPassword);
-
-        //Подождать пока кнопка появится и убедится что она действительно появилась
+        //Подождать пока кнопка "Оформить заказ" появится
         mainPage.buttonCreateOrder.shouldBe(enabled);
-        //Проверку проверить, что отображается кнопка Оформить заказ
+        //Проверить, что кнопка "Оформить заказ" отображается
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
         assertTrue(createOrderButtonIsDisplayed);
 

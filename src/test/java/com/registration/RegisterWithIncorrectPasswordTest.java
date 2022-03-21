@@ -34,6 +34,7 @@ public class RegisterWithIncorrectPasswordTest extends BaseTest {
 
         //Заполнить форму регистрации
         registerPage.fillForm(user.getName(), user.getEmail(), user.getPassword());
+        //Проверить, что показано сообщение о неверном пароле
         boolean errorMessageIsDisplayed = registerPage.isErrorMessage();
         assertTrue(errorMessageIsDisplayed);
     }

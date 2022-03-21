@@ -1,10 +1,13 @@
 package com.registration;
 
 import com.BaseTest;
+import com.codeborne.selenide.Selenide;
 import com.model.User;
 import com.po.LoginPage;
 import com.po.MainPage;
+import com.po.ProfilePage;
 import com.po.RegisterPage;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
