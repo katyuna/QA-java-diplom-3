@@ -9,7 +9,13 @@ public class ProfilePage {
     @FindBy(how = How.XPATH, using = ".//button[text()='Выход']")
     public SelenideElement exitButton;
 
+    //Клик по кнопке Выход
     public void clickExitButton(){
         this.exitButton.click();
+    }
+
+    //Метод,определяющий отображение кнопки Выход
+    public boolean isExitButton() {
+        return exitButton.isDisplayed();
     }
 }

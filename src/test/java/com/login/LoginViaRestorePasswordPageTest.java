@@ -4,7 +4,6 @@ import com.BaseTest;
 import com.UserOperations;
 import com.po.LoginPage;
 import com.po.MainPage;
-import com.po.RegisterPage;
 import com.po.RestorePasswordPage;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +14,7 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
-public class LoginViaRestorePasswordLinkTest extends BaseTest {
+public class LoginViaRestorePasswordPageTest extends BaseTest {
     @Test
     @DisplayName("Вход в профиль по ссылке Войти на странице восстановления пароля")
     public void testCreateOrderButtonIsDisplayedAfterLoginViaRestorePasswordPage() {
@@ -40,8 +39,8 @@ public class LoginViaRestorePasswordLinkTest extends BaseTest {
         //Подождать пока кнопка "Оформить заказ" появится
         mainPage.buttonCreateOrder.shouldBe(enabled);
         //Проверить, что кнопка "Оформить заказ" отображается
-        boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
-        assertTrue(createOrderButtonIsDisplayed);
+        boolean isCreateOrderButtonIsDisplayed = mainPage.isOrderButton();
+        assertTrue(isCreateOrderButtonIsDisplayed);
 
 
 

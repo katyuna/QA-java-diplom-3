@@ -1,11 +1,10 @@
-package com.login;
+package com.profile;
 
 import com.BaseTest;
 import com.UserOperations;
 import com.po.LoginPage;
 import com.po.MainPage;
-import com.po.RegisterPage;
-import io.qameta.allure.Description;
+import com.po.ProfilePage;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -15,10 +14,11 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
-public class LoginViaLoginPageTest extends BaseTest {
+public class GoToProfileTest extends BaseTest {
+
     @Test
-    @DisplayName("Вход в профиль по кнопке Войти на странице регистрации")
-    public void testCreateOrderButtonIsDisplayedAfterEnterViaEnterLink() {
+    @DisplayName("Переход в личный кабинет")
+    public void testExitButtonIsDisplayedInToAccountPage() {
         //Зарегистрировать пользователя и получить его данные для авторизации
         UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
@@ -27,20 +27,22 @@ public class LoginViaLoginPageTest extends BaseTest {
 
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
-        RegisterPage registerPage = page(RegisterPage.class);
         LoginPage loginPage = page(LoginPage.class);
+        ProfilePage profilePage = page(ProfilePage.class);
 
-        //Перейти по страницам до формы логина
-        mainPage.buttonAccount.click();
-        loginPage.linkRegister.click();
-        registerPage.clickLoginLink();
-
-        //Заполнить форму логина
+        //Клик по кнопке "Войти в аккаунт" и авторизоваться
+        mainPage.buttonEnterAccount.click();
         loginPage.fillLoginForm(userEmail, userPassword);
         //Подождать пока кнопка "Оформить заказ" появится
         mainPage.buttonCreateOrder.shouldBe(enabled);
-        //Проверить, что кнопка "Оформить заказ" отображается
-        boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
-        assertTrue(createOrderButtonIsDisplayed);
+        //Перейти в Личный кабинет
+        mainPage.buttonAccount.click();
+        //Подождать пока кнопка Выход появится
+        profilePage.exitButton.shouldBe(enabled);
+
+        //Проверить, что отображается кнопка Выход
+       boolean isExitButtonDisplayed = profilePage.isExitButton();
+       assertTrue(isExitButtonDisplayed);
+
     }
 }
