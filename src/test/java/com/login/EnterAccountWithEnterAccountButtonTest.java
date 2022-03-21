@@ -2,10 +2,8 @@ package com.login;
 
 import com.BaseTest;
 import com.UserOperations;
-import com.model.User;
 import com.po.LoginPage;
 import com.po.MainPage;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -13,7 +11,6 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class EnterAccountWithEnterAccountButtonTest extends BaseTest {

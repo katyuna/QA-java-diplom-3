@@ -7,7 +7,7 @@ import org.openqa.selenium.support.How;
 public class MainPage {
     public static final String URL = "https://stellarburgers.nomoreparties.site";
     //Кнопика "Личный кабинет"
-    @FindBy(how = How.XPATH, using = "//a[@href='/account']")
+    @FindBy(how = How.XPATH, using = ".//a[@href='/account']")
     public SelenideElement buttonAccount;
     //Кнопка Войти в аккаунт
     @FindBy(how = How.XPATH, using = ".//button[text()='Войти в аккаунт']")

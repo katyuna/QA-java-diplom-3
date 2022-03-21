@@ -6,10 +6,10 @@ import org.openqa.selenium.support.How;
 
 public class LoginPage {
     //Ссылка "Зарегистрироваться"
-    @FindBy(how = How.XPATH, using = "//a[@href='/register']")
+    @FindBy(how = How.XPATH, using = ".//a[@href='/register']")
     public SelenideElement linkRegister;
     //Кнопка "Войти"
-    @FindBy(how = How.XPATH, using = "//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']")
+    @FindBy(how = How.XPATH, using = ".//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']")
     public SelenideElement buttonLogin;
     //Текст "Вход"
     @FindBy(how = How.XPATH, using = "//div[@class='Auth_login__3hAey']//h2")
