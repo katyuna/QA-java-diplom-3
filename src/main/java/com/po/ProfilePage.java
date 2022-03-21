@@ -9,6 +9,10 @@ public class ProfilePage {
     @FindBy(how = How.XPATH, using = ".//button[text()='Выход']")
     public SelenideElement exitButton;
 
+    //Логотип Stellar Burgers
+    @FindBy(how = How.XPATH, using = ".//a[@href='/']")
+    public SelenideElement logoStellarBurgers;
+
     //Клик по кнопке Выход
     public void clickExitButton(){
         this.exitButton.click();
