@@ -19,6 +19,8 @@ public class RegisterPage {
     public SelenideElement buttonRegister;
     @FindBy(how = How.XPATH, using = ".//p[@class='input__error text_type_main-default']")
     private SelenideElement errorMessage;
+    @FindBy(how = How.XPATH, using = ".//a[@href='/login']")
+    public SelenideElement linkLogin;
 
 
     //Методы заполнения полей формы и клик по кнопке
@@ -52,5 +54,10 @@ public class RegisterPage {
         return errorMessage.isDisplayed();
 
     }
+    //Клик по ссылке "Войти"
+    public void clickLoginLink(){
+        this.linkLogin.click();
+    }
+
 
 }

@@ -13,10 +13,10 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
-public class EnterAccountWithAccountButtonTest extends BaseTest {
+public class EnterProfileWithAccountButtonTest extends BaseTest {
     @Test
     @DisplayName("Вход в аккаунт по кнопке Личный Кабинет на главной странице")
-    public void testAccountButtonIsOk() {
+    public void testCreateOrderButtonIsDisplayedAfterEnterViaProfile() {
         //Зарегистрировать пользователя и получить его данные для авторизации
         UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
