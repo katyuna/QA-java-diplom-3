@@ -51,10 +51,12 @@ public class LoginPage {
     public void clickRegisterLink() {
         this.linkRegister.click();
     }
+
     //Получить текст "Вход"
     public String getEnterText (){
         return this.enterText.getText();
     }
+
     //Клик по Личный кабинет
     public void  clickAccount(){
         this.buttonAccount.click();
@@ -62,5 +64,10 @@ public class LoginPage {
     //Клик по ссылке восстановления пароля
     public void  clickForgotPassword(){
         this.linkForgotPassword.click();
+    }
+
+    //Метод,определяющий отображение кнопки Войти
+    public boolean isLoginButton() {
+        return buttonLogin.isDisplayed();
     }
 }
