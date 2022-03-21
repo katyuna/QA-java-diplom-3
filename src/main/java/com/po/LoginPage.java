@@ -21,8 +21,8 @@ public class LoginPage {
     @FindBy(how = How.XPATH, using = ".//input[@type='password']")
     public SelenideElement inputPassword;
     //Кнопка "Войти"
-    @FindBy(how = How.XPATH, using = "//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']")
-    public SelenideElement buttonEnter;
+    // @FindBy(how = How.XPATH, using = ".//button[text()='Войти']")
+   // public SelenideElement buttonEnter;
 
     //Методы заполнения полей формы и клик по кнопке
     public void setEmail(String email)
@@ -36,7 +36,7 @@ public class LoginPage {
         this.inputPassword.setValue(password);
     }
     public void clickEnterButton() {
-        this.buttonEnter.click();
+        this.buttonLogin.click();
     }
 
     //Метод заполнения всей формы и переход дальше

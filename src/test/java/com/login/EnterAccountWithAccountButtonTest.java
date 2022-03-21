@@ -27,7 +27,7 @@ public class EnterAccountWithAccountButtonTest extends BaseTest {
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         LoginPage loginPage = page(LoginPage.class);
-
+        //Клик по "Личный кабинет"
         mainPage.buttonAccount.click();
 
         loginPage.fillLoginForm(userEmail, userPassword);

@@ -16,12 +16,5 @@ public abstract class BaseTest {
         // System.setProperty("webdriver.chrome.driver", "src/resources/yandexdriver.exe");
         MainPage mainPage = open(MainPage.URL, MainPage.class);
 
-        //Зарегистрировать пользователя и получить его данные для авторизации
-        /* UserOperations userOperations = new UserOperations();
-        Map<String, String> userData = userOperations.register();
-        String userName = userData.get("name");
-        String userEmail = userData.get("email");
-        String userPassword = userData.get("password");*/
-
-    }
+           }
 }

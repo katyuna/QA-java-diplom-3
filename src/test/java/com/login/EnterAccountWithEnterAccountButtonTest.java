@@ -23,7 +23,7 @@ public class EnterAccountWithEnterAccountButtonTest extends BaseTest {
     public void testEnterAccountButtonIsOk() {
 
         //Зарегистрировать пользователя и получить его данные для авторизации
-       UserOperations userOperations = new UserOperations();
+        UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
         String userName = userData.get("name");
         String userEmail = userData.get("email");
