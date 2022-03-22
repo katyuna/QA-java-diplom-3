@@ -18,31 +18,34 @@ public class GoToProfileTest extends BaseTest {
 
     @Test
     @DisplayName("Переход в личный кабинет")
-    public void testExitButtonIsDisplayedInToAccountPage() {
+    public void testExitButtonDisplayedOnTheAccountPage() {
+
+        //ARRANGE
         //Зарегистрировать пользователя и получить его данные для авторизации
         UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
         String userEmail = userData.get("email");
         String userPassword = userData.get("password");
-
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         LoginPage loginPage = page(LoginPage.class);
         ProfilePage profilePage = page(ProfilePage.class);
 
+        //ACT
         //Клик по кнопке "Войти в аккаунт" и авторизоваться
         mainPage.buttonEnterAccount.click();
         loginPage.fillLoginForm(userEmail, userPassword);
-        //Подождать пока кнопка "Оформить заказ" появится
+        //Подождать пока кнопка "Оформить заказ" появится (страница загрузится)
         mainPage.buttonCreateOrder.shouldBe(enabled);
         //Перейти в Личный кабинет
         mainPage.buttonAccount.click();
-        //Подождать пока кнопка Выход появится
+        //Подождать пока кнопка Выход появится (страница загрузится)
         profilePage.exitButton.shouldBe(enabled);
 
+        //ASSERT
         //Проверить, что отображается кнопка Выход
        boolean isExitButtonDisplayed = profilePage.isExitButton();
-       assertTrue(isExitButtonDisplayed);
+       assertTrue("Не произошел пиереход на страницу профиля", isExitButtonDisplayed);
 
     }
 }

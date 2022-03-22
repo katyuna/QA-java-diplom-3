@@ -17,29 +17,32 @@ import static org.junit.Assert.assertTrue;
 public class LoginViaRegisterPageTest extends BaseTest {
     @Test
     @DisplayName("Вход в профиль по кнопке Войти на странице регистрации")
-    public void testCreateOrderButtonIsDisplayedAfterEnterViaEnterLink() {
+    public void testCreateOrderButtonDisplayedAfterEnterViaEnterLink() {
+
+        //ARRANGE
         //Зарегистрировать пользователя и получить его данные для авторизации
         UserOperations userOperations = new UserOperations();
         Map<String, String> userData = userOperations.register();
         String userEmail = userData.get("email");
         String userPassword = userData.get("password");
-
         //Создать экземпляры страниц
         MainPage mainPage = page(MainPage.class);
         RegisterPage registerPage = page(RegisterPage.class);
         LoginPage loginPage = page(LoginPage.class);
 
+        //ACT
         //Перейти по страницам до формы логина
         mainPage.buttonAccount.click();
         loginPage.linkRegister.click();
         registerPage.clickLoginLink();
-
         //Заполнить форму логина
         loginPage.fillLoginForm(userEmail, userPassword);
-        //Подождать пока кнопка "Оформить заказ" появится
+        //Подождать пока кнопка "Оформить заказ" появится (страница загрузится)
         mainPage.buttonCreateOrder.shouldBe(enabled);
+
+        //ASSERT
         //Проверить, что кнопка "Оформить заказ" отображается
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
-        assertTrue(createOrderButtonIsDisplayed);
+        assertTrue("Не произошел переход на главную страницу после авторизации", createOrderButtonIsDisplayed);
     }
 }
