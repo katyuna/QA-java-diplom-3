@@ -22,7 +22,6 @@ public class RegisterPage {
     @FindBy(how = How.XPATH, using = ".//a[@href='/login']")
     public SelenideElement linkLogin;
 
-
     //Методы заполнения полей формы и клик по кнопке
     public void setName(String name)
     {
@@ -58,6 +57,4 @@ public class RegisterPage {
     public void clickLoginLink(){
         this.linkLogin.click();
     }
-
-
 }

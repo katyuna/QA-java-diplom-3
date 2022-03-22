@@ -11,7 +11,5 @@ public class RestorePasswordPage {
     //Клик по ссылке войти
     public void clickLoginLink() {
         this.linkLogin.click();
-
-
     }
 }

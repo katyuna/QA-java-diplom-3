@@ -79,5 +79,4 @@ public class UserOperations {
                 .then()
                 .statusCode(202);
     }
-
 }

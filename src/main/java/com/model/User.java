@@ -54,7 +54,7 @@ public class User {
         String name = faker.name().firstName();
         return new User (email, password, name);
     }
-    //Сгенерируем случайные данные юзера c некоррекным паролем (<6 символов)
+    //Сгенеровать случайные данные юзера c некоррекным паролем (<6 символов)
     public static User getRandomUserIncorrectPassword(){
         Faker faker = new Faker();
         String email = faker.internet().emailAddress();

@@ -44,5 +44,8 @@ public class LoginViaRestorePasswordPageTest extends BaseTest {
         //Проверить, что кнопка "Оформить заказ" отображается
         boolean isCreateOrderButtonIsDisplayed = mainPage.isOrderButton();
         assertTrue("Не произошел переход на главную страницу после авторизации", isCreateOrderButtonIsDisplayed);
+
+        //Удалить пользователя
+        userOperations.delete();
     }
 }

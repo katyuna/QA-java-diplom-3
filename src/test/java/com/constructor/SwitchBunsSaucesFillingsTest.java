@@ -1,13 +1,10 @@
 package com.constructor;
 
 import com.BaseTest;
-import com.codeborne.selenide.SelenideElement;
 import com.po.MainPage;
-import io.qameta.allure.Step;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
-import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 

@@ -8,7 +8,6 @@ public class ProfilePage {
     //Кнопка "Выход"
     @FindBy(how = How.XPATH, using = ".//button[text()='Выход']")
     public SelenideElement exitButton;
-
     //Логотип Stellar Burgers
     @FindBy(how = How.XPATH, using = ".//a[@href='/']")
     public SelenideElement logoStellarBurgers;
@@ -17,7 +16,6 @@ public class ProfilePage {
     public void clickExitButton(){
         this.exitButton.click();
     }
-
     //Метод,определяющий отображение кнопки Выход
     public boolean isExitButton() {
         return exitButton.isDisplayed();
