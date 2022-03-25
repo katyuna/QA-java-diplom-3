@@ -22,6 +22,9 @@ public abstract class BaseTest {
     }
 
     @After
+
+    //Удалить пользователя
+    // userOperations.delete();
    //Закрыть браузер
     public void closeBrowser() {
         Selenide.closeWindow();

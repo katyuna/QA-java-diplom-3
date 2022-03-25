@@ -42,7 +42,5 @@ public class LoginViaEnterAccountButtonTest extends BaseTest {
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
         assertTrue("Не произошел переход на главную страницу после авторизации", createOrderButtonIsDisplayed);
 
-        //Удалить пользователя
-        userOperations.delete();
     }
 }

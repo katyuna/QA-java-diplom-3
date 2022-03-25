@@ -1,7 +1,9 @@
 package com.registration;
 
 import com.BaseTest;
+import com.UserOperations;
 import com.model.User;
+import com.model.UserCredentials;
 import com.po.LoginPage;
 import com.po.MainPage;
 import com.po.RegisterPage;
@@ -39,5 +41,14 @@ public class RegisterWithCorrectDataTest extends BaseTest {
         //Проверить, что отображается кнопка Логина
         boolean isLoginButtonDisplayed = loginPage.isLoginButton();
         assertTrue("Не произошел переход на страницу логина после регистрации",isLoginButtonDisplayed);
+
+        //Авторизоваться для получения токена, чтобы удалить пользователя
+        //Получить кредлы пользователя
+        UserCredentials userCredentials = new UserCredentials(user.getEmail(), user.getPassword());
+        UserOperations userOperations = new UserOperations();
+        //Авторизоваться
+        userOperations.login(userCredentials);
+        //Удалить пользователя
+        userOperations.delete();
     }
 }
