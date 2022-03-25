@@ -36,4 +36,8 @@ public class RegisterWithIncorrectPasswordTest extends BaseTest {
         boolean errorMessageIsDisplayed = registerPage.isErrorMessage();
         assertTrue("Нет сообщения об ошибке ввода пароля", errorMessageIsDisplayed);
     }
+    //Т.к. пользователя удалять не надо - переопределила метод
+    @Override
+    public void deleteUser(){
+    }
 }

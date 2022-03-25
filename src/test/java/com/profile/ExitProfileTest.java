@@ -47,8 +47,5 @@ public class ExitProfileTest extends BaseTest {
         //Проверить, что отображается кнопка Логина
         boolean isLoginButtonDisplayed = loginPage.isLoginButton();
         assertTrue("Не произошел переход на страницу логина после выхода из личного кабинета", isLoginButtonDisplayed);
-
-        //Удалить пользователя
-        userOperations.delete();
     }
 }

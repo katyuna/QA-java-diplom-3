@@ -44,8 +44,5 @@ public class LoginViaRegisterPageTest extends BaseTest {
         //Проверить, что кнопка "Оформить заказ" отображается
         boolean createOrderButtonIsDisplayed = mainPage.isOrderButton();
         assertTrue("Не произошел переход на главную страницу после авторизации", createOrderButtonIsDisplayed);
-
-        //Удалить пользователя
-        userOperations.delete();
     }
 }

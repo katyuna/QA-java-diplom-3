@@ -46,8 +46,5 @@ public class GoToProfileTest extends BaseTest {
         //Проверить, что отображается кнопка Выход
        boolean isExitButtonDisplayed = profilePage.isExitButton();
        assertTrue("Не произошел пиереход на страницу профиля", isExitButtonDisplayed);
-
-        //Удалить пользователя
-        userOperations.delete();
     }
 }

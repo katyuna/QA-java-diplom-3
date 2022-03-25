@@ -1,7 +1,10 @@
 package com.constructor;
 
 import com.BaseTest;
+import com.UserOperations;
+import com.codeborne.selenide.Selenide;
 import com.po.MainPage;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -48,5 +51,9 @@ public class SwitchBunsSaucesFillingsTest extends BaseTest {
         //Проверить отображение заголовка Начинки
         boolean isFillingsHeader = mainPage.isFillingsHeaderDisplayed();
         assertTrue("Таб Соусы не открылся.",isFillingsHeader);
+    }
+    //Т.к. пользователя удалять не надо - переопределила метод
+    @Override
+    public void deleteUser(){
     }
 }

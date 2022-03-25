@@ -48,7 +48,5 @@ public class RegisterWithCorrectDataTest extends BaseTest {
         UserOperations userOperations = new UserOperations();
         //Авторизоваться
         userOperations.login(userCredentials);
-        //Удалить пользователя
-        userOperations.delete();
     }
 }

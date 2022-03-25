@@ -22,9 +22,11 @@ public abstract class BaseTest {
     }
 
     @After
-
     //Удалить пользователя
-    // userOperations.delete();
+    public void deleteUser(){
+        UserOperations userOperations = new UserOperations();
+        userOperations.delete();
+    }
    //Закрыть браузер
     public void closeBrowser() {
         Selenide.closeWindow();
