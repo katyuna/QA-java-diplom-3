@@ -7,7 +7,7 @@ import org.openqa.selenium.support.How;
 public class RegisterPage {
 
     // Задаем URL страницы константой
-    public static final String URL = "https://stellarburgers.nomoreparties.site/register";
+    public static final String URL_REGISTER = "https://stellarburgers.nomoreparties.site/register";
 
     @FindBy(how = How.XPATH, using = ".//fieldset[1]//input[@name='name']")
     public SelenideElement inputName;
