@@ -18,11 +18,10 @@ public class SwitchBunsSaucesFillingsTest extends BaseTest {
         //ACT
         mainPage.clickSauces();
         mainPage.clickBuns();
-        //Получить класс активного элемента
-        String activeElementClass = mainPage.tabs.get(0).getAttribute("class");
         //ASSERT
-        //Проверить, класс активного элемента
-        assertTrue("Не произошел переход на таб Булки", activeElementClass.contains("tab_tab_type_current__2BEPc"));
+        //Проверить отображение заголовка Булки
+        boolean isBunHeader = mainPage.isBunsHeaderDisplayed();
+        assertTrue("Таб Булки не открылся.",isBunHeader);
     }
 
     @Test
@@ -32,11 +31,10 @@ public class SwitchBunsSaucesFillingsTest extends BaseTest {
         MainPage mainPage = page(MainPage.class);
         //ACT
         mainPage.clickSauces();
-        //Получить класс активного элемента
-        String activeElementClass = mainPage.tabs.get(1).getAttribute("class");
         //ASSERT
-        //Проверить, класс активного элемента
-        assertTrue("Не произошел переход на таб Соусы", activeElementClass.contains("tab_tab_type_current__2BEPc"));
+        //Проверить отображение заголовка Соусы
+        boolean isSaucesHeader = mainPage.isSaucesHeaderDisplayed();
+        assertTrue("Таб Соусы не открылся.",isSaucesHeader);
     }
 
     @Test
@@ -46,10 +44,9 @@ public class SwitchBunsSaucesFillingsTest extends BaseTest {
         MainPage mainPage = page(MainPage.class);
         //ACT
         mainPage.clickFillings();
-        //Получить класс активного элемента
-        String activeElementClass = mainPage.tabs.get(2).getAttribute("class");
         //ASSERT
-        //Проверить, класс активного элемента
-        assertTrue("Не произошел переход на таб Начинки", activeElementClass.contains("tab_tab_type_current__2BEPc"));
+        //Проверить отображение заголовка Начинки
+        boolean isFillingsHeader = mainPage.isFillingsHeaderDisplayed();
+        assertTrue("Таб Соусы не открылся.",isFillingsHeader);
     }
 }

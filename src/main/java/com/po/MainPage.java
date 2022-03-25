@@ -16,9 +16,33 @@ public class MainPage {
     //Кнопка Оформить заказ
     @FindBy(how = How.XPATH, using = ".//button[text()='Оформить заказ']")
     public SelenideElement buttonCreateOrder;
-    //Табы "Булки", Соусы", "Начинки"
+
+
+
+    /*Табы "Булки", Соусы", "Начинки"
     @FindBy(how = How.CLASS_NAME,using = "tab_tab__1SPyG")
-    public ElementsCollection tabs;
+    public ElementsCollection tabs;*/
+
+    //Таб "Булки"
+    @FindBy(how = How.XPATH,using = ".//span[contains(text(),'Булки')]")
+    public SelenideElement tabBun;
+    //Таб "Соусы"
+    @FindBy(how = How.XPATH,using = ".//span[contains(text(),'Соусы')]")
+    public SelenideElement tabSauces;
+    //Таб "Начинки"
+    @FindBy(how = How.XPATH,using = ".//span[contains(text(),'Начинки')]")
+    public SelenideElement tabFillings;
+
+
+    //Заголовки табов
+    @FindBy(how = How.XPATH, using = ".//h2[text()='Булки']")
+    private SelenideElement bunsHeader;
+    @FindBy(how = How.XPATH, using = ".//h2[text()='Соусы']")
+    private SelenideElement saucesHeader;
+    @FindBy(how = How.XPATH, using = ".//h2[text()='Начинки']")
+    private SelenideElement fillingsHeader;
+
+
 
     public void clickAccountButton() {
         this.buttonAccount.click();
@@ -35,12 +59,23 @@ public class MainPage {
     }
     //Методы клика по табам "Булки", Соусы", "Начинки"
     public void clickBuns(){
-        this.tabs.get(0).click();
+        this.tabBun.click();
     }
     public  void clickSauces(){
-        this.tabs.get(1).click();
+        this.tabSauces.click();
     }
     public  void clickFillings(){
-        this.tabs.get(2).click();
+        this.tabFillings.click();
+    }
+
+    //Методы,определяющие отображение заголовков табов Булки, Соусы, Начинки
+    public boolean isBunsHeaderDisplayed() {
+        return bunsHeader.isDisplayed();
+    }
+    public boolean isSaucesHeaderDisplayed() {
+        return saucesHeader.isDisplayed();
+    }
+    public boolean isFillingsHeaderDisplayed() {
+        return fillingsHeader.isDisplayed();
     }
 }
