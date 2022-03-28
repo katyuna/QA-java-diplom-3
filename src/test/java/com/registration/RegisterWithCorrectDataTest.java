@@ -43,7 +43,7 @@ public class RegisterWithCorrectDataTest extends BaseTest {
         assertTrue("Не произошел переход на страницу логина после регистрации",isLoginButtonDisplayed);
 
         //Авторизоваться для получения токена, чтобы удалить пользователя
-        //Получить кредлы пользователя
+        //Получить креды пользователя
         UserCredentials userCredentials = new UserCredentials(user.getEmail(), user.getPassword());
         UserOperations userOperations = new UserOperations();
         //Авторизоваться

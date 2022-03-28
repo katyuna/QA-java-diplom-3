@@ -5,11 +5,10 @@ import com.po.MainPage;
 import org.junit.After;
 import org.junit.Before;
 
-import java.util.Map;
-
 import static com.codeborne.selenide.Selenide.open;
 
 public abstract class BaseTest {
+    protected UserOperations userOperations;
 
     @Before
     public void before() {
@@ -24,7 +23,6 @@ public abstract class BaseTest {
     @After
     //Удалить пользователя
     public void deleteUser(){
-        UserOperations userOperations = new UserOperations();
         userOperations.delete();
     }
    //Закрыть браузер
