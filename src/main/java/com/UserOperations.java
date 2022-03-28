@@ -1,12 +1,14 @@
 package com;
 
 import com.model.Tokens;
+import com.model.UserCredentials;
 import com.model.UserRegisterResponse;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.Base.getBaseSpec;
 import static io.restassured.RestAssured.given;
 
 public class UserOperations {
@@ -21,7 +23,8 @@ public class UserOperations {
     public Map<String, String> register() {
 
         // с помощью библиотеки RandomStringUtils генерируем имэйл
-        // метод randomAlphabetic генерирует строку, состоящую только из букв, в качестве параметра передаём длину строки
+        // метод randomAlphabetic генерирует строку, состоящую только из букв,
+        // в качестве параметра передаём длину строки
         String email = RandomStringUtils.randomAlphabetic(10) + EMAIL_POSTFIX;
         // с помощью библиотеки RandomStringUtils генерируем пароль
         String password = RandomStringUtils.randomAlphabetic(10);
@@ -34,9 +37,10 @@ public class UserOperations {
         inputDataMap.put("password", password);
         inputDataMap.put("name", name);
 
-        // отправляем запрос на регистрацию пользователя и десериализуем ответ в переменную response
+        // отправляем запрос на регистрацию пользователя и десериализуем
+        // ответ в переменную response
         UserRegisterResponse response = given()
-                .spec(Base.getBaseSpec())
+                .spec(getBaseSpec())
                 .and()
                 .body(inputDataMap)
                 .when()
@@ -51,7 +55,8 @@ public class UserOperations {
             responseData.put("name", response.getUser().getName());
             responseData.put("password", password);
 
-            // токен, нужный для удаления пользователя, кладем в статическое поле класса с токенами
+            // токен, нужный для удаления пользователя, кладем в статическое
+            // поле класса с токенами
             // убираем слово Bearer в начале токена
             // так же запоминаем refreshToken
             Tokens.setAccessToken(response.getAccessToken().substring(7));
@@ -69,12 +74,27 @@ public class UserOperations {
             return;
         }
         given()
-                .spec(Base.getBaseSpec())
+                .spec(getBaseSpec())
                 .auth().oauth2(Tokens.getAccessToken())
                 .when()
                 .delete("auth/user")
                 .then()
                 .statusCode(202);
     }
+
+    //Метод авторизации пользователя
+    public void login(UserCredentials userCredentials){
+        UserRegisterResponse response = given()
+                .spec(getBaseSpec())
+                .body(userCredentials)
+                .when()
+                .post("/auth/login")
+                .then()
+                .extract()
+                .as(UserRegisterResponse.class);
+        Tokens.setAccessToken(response.getAccessToken().substring(7));
+    }
+
+
 
 }
